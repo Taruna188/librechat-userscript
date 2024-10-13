@@ -138,10 +138,12 @@ const ChatForm = ({ index = 0 }) => {
     window.__userscript_ChatForm_handleFiles = handleFiles;
 
     window.addEventListener("message", (ev) => {
-      const { type, data } = ev.data;
+      const { type, blob, filename, filetype } = ev.data;
 
       if (type == "add_files") {
-        handleFiles(data);
+        handleFiles([
+          new File([blob], filename, { type: filetype })
+        ]);
       }
     })
   }, []);
