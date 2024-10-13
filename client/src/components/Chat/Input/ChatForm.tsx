@@ -141,7 +141,8 @@ const ChatForm = ({ index = 0 }) => {
       const { type, blob, filename, filetype } = ev.data;
 
       if (type == "add_files") {
-        handleFiles([
+        // @ts-ignore
+        window.__userscript_ChatForm_handleFiles([
           new File([blob], filename, { type: filetype })
         ]);
       }
