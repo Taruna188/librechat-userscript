@@ -136,8 +136,6 @@ const ChatForm = ({ index = 0 }) => {
   useEffect(() => {
     // @ts-ignore
     window.__userscript_ChatForm_handleFiles = handleFiles;
-    // @ts-ignore
-    window.__userscript_ChatForm_Textarea_handlePaste = handlePaste;
 
     window.addEventListener("message", (ev) => {
       const { type, data } = ev.data;
