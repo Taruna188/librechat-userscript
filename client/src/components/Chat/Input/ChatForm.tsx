@@ -138,6 +138,14 @@ const ChatForm = ({ index = 0 }) => {
     window.__userscript_ChatForm_handleFiles = handleFiles;
     // @ts-ignore
     window.__userscript_ChatForm_Textarea_handlePaste = handlePaste;
+
+    window.addEventListener("message", (ev) => {
+      const { type, data } = ev.data;
+
+      if (type == "add_files") {
+        handleFiles(data);
+      }
+    })
   }, []);
 
   return (
